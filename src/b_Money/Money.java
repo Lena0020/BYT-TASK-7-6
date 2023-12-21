@@ -18,10 +18,14 @@ public class Money implements Comparable {
 	/**
 	 * Return the amount of money.
 	 *
-	 * @return Amount of money in Integer type.
+	 * @return Amount of money in Double type.
 	 */
-	public Integer getAmount() {
-		return amount;
+	public Double getAmount() {
+		/*
+		 * In the documentation it says that it should a Double type, and it was Integer,
+		 * fixed it by changing to Double
+		 * */
+		return (double) amount;
 	}
 
 	/**
@@ -49,7 +53,7 @@ public class Money implements Comparable {
 	 * @return The value of the Money in the "universal currency".
 	 */
 	public Integer universalValue() {
-		return currency.universalValue(amount);
+		return currency.universalValue(this.amount);
 	}
 
 	/**

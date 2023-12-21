@@ -26,7 +26,7 @@ public class Currency {
 	 * @return The value of amount in the "universal currency"
 	 */
 	public Integer universalValue(Integer amount) {
-		return (int) (amount * rate);
+		return (int) (amount * this.rate);
 	}
 
 	/**

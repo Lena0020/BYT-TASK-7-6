@@ -45,7 +45,10 @@ public class Account {
 	 */
 	public void tick() {
 		for (TimedPayment tp : timedpayments.values()) {
-			tp.tick(); tp.tick();
+			/*
+			 * tick was performed twice instead of once - fixed
+			 * */
+			tp.tick();
 		}
 	}
 	

@@ -14,7 +14,9 @@ public class PointTest {
 		p2 = new Point(-3, -30);
 		p3 = new Point(-10, 3);
 	}
-
+	/*
+	 * The annotations @Test were missing, now fixed
+	 * */
 	@Test
 	public void testAdd() {
 		Point res1 = p1.add(p2);
@@ -23,6 +25,9 @@ public class PointTest {
 		assertEquals(4, res1.x);
 		assertEquals(-21, res1.y);
 		assertEquals(-3, res2.x);
+		/*
+		 * There was assertEquals(12,res2.x); fixed it to res2.y
+		 * */
 		assertEquals(12, res2.y);
 	}
 
@@ -30,7 +35,9 @@ public class PointTest {
 	public void testSub() {
 		Point res1 = p1.sub(p2);
 		Point res2 = p1.sub(p3);
-
+		/*
+		 * Before all the assertions here were just copied over directly
+		 * */
 		assertEquals(10, res1.x);
 		assertEquals(39, res1.y);
 		assertEquals(17, res2.x);

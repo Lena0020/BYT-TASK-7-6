@@ -50,8 +50,14 @@ public class Bank {
 		if (accountlist.containsKey(accountid)) {
 			throw new AccountExistsException();
 		} else {
-			// Create a new account and put it in the account list
-			Account newAccount = new Account(accountid, currency);
+			/*
+			* code that was here did not add a new account to the list:
+			*
+			accountlist.get(accountid);
+			*
+			* fixed it, code below does
+			*/
+			Account newAccount = new Account(accountid, this.currency);
 			accountlist.put(accountid, newAccount);
 		}
 	}
@@ -83,8 +89,11 @@ public class Bank {
 		if (!accountlist.containsKey(accountid)) {
 			throw new AccountDoesNotExistException();
 		} else {
+			/*
+			 * Fixed - Calls withdraw method instead of deposit, before it was deposit
+			 * */
 			Account account = accountlist.get(accountid);
-			account.withdraw(money); // Fix: Call withdraw method instead of deposit
+			account.withdraw(money);
 		}
 	}
 	
@@ -94,7 +103,10 @@ public class Bank {
 	 * @return Balance of the account
 	 * @throws AccountDoesNotExistException If the account does not exist
 	 */
-	public Integer getBalance(String accountid) throws AccountDoesNotExistException {
+	/*
+	 * I changed the return type to Double so that it matches with the return type of getAmount in Money
+	 * */
+	public Double getBalance(String accountid) throws AccountDoesNotExistException {
 		if (!accountlist.containsKey(accountid)) {
 			throw new AccountDoesNotExistException();
 		}

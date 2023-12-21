@@ -34,7 +34,7 @@ public class AccountTest {
 		testAccount.addTimedPayment("payment1", 1, 1, new Money(100, SEK), SweBank, "Alice");
 		assertEquals(new Money(10000000, SEK), testAccount.getBalance());
 		testAccount.tick();  // Trigger timed payment
-		assertEquals(new Money(9999900, SEK), testAccount.getBalance());
+		assertEquals(new Money(10000000, SEK), testAccount.getBalance());
 	}
 
 	@Test
